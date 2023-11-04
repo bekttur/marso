@@ -9,7 +9,7 @@ footer {
     display: flex;
     align-items: start;
     justify-content: space-around;
-    padding: 25px;
+    padding: 25px 0;
 }
 
 .contact-footer {
@@ -62,7 +62,7 @@ footer {
 
 
 
-@media (max-width: 720px) {
+@media (min-width: 501px) and (max-width: 720px) {
     .footer-block{
         padding: 25px 0;
     }

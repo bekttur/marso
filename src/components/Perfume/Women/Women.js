@@ -81,7 +81,7 @@ export const Women = ({ women, basket }) => {
 
     return (
         <div className="block">
-            <h1>Женский парфюм</h1>
+            <h1 className="title-header">Женский парфюм</h1>
             <div className="perfumes-block">
                 {products.map((item, index) => {
                     return (
@@ -91,7 +91,7 @@ export const Women = ({ women, basket }) => {
                             onMouseOut={() => handleMouseOut(index)}
                             key={item.id}
                         >
-                            <div>
+                            <div className="perfume-elements">
                                 <Link to={"/perfume/" + `${item.id}`}>
                                     <div className="perfume-img-block">
                                         <img className="perfume-img" src={item.img} alt={item.name} />

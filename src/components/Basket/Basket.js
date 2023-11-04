@@ -1,8 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "./Basket.css";
 import { Link } from "react-router-dom";
+import { useSpring, animated } from 'react-spring'
+
+
+function Number({ n }) {
+    const { number } = useSpring({
+        from: { number: 0 },
+        number: n,
+        delay: 200,
+        config: { mass: 1, tension: 30, friction: 10 }
+    })
+    return <animated.div>{number.to((n) => n.toFixed(0))}</animated.div>
+}
 
 export const Basket = ({ basket, setBasket }) => {
+
+
 
     const [totalPrice, setTotalPrice] = useState(0)
 
@@ -70,7 +84,7 @@ export const Basket = ({ basket, setBasket }) => {
 
     return (
         <div className="block">
-            <h1>Корзина</h1>
+            <h1 className="title-header">Корзина</h1>
             {basket.length !== 0 ? (
                 <div className="basket-block">
                     <div className="basket-nav">
@@ -80,44 +94,52 @@ export const Basket = ({ basket, setBasket }) => {
                         <div className="clear">
                             <button className="clear-btn" onClick={clearBtn}>Очистить</button>
                         </div>
+
                     </div>
                     <div className="basket-products">
                         {basket.map((item) => {
                             return (
-                                <div className="basket-card" key={item.id}>
-                                    <div className="basket-img-block">
-                                        <img className="basket-product-img" src={item.img} alt={item.name} />
-                                    </div>
-                                    <div className="basket-title">
-                                        <h4>{item.name}</h4>
-                                    </div>
-                                    <div className="basket-info-block">
-                                        <div className="basket-price-block">
-                                            <p style={{ fontWeight: 600 }}>2 365 руб.</p>
-                                            <p style={{ fontSize: 13, color: "#a1a1a1" }}>цена за 1 шт</p>
+                                <>
+                                    <div className="basket-card" key={item.id}>
+                                        <div className="basket-img-block">
+                                            <img className="basket-product-img" src={item.img} alt={item.name} />
                                         </div>
-                                        <div className="counter">
-                                            <div className="basket-btns">
-                                                <button className="handle-btn" onClick={() => handleDecrement(item.id)}>
-                                                    -
-                                                </button>
-                                                <div className="count">
-                                                    <span>{item.count}</span>
-                                                </div>
-                                                <button className="handle-btn" onClick={() => handleIncrement(item.id)}>
-                                                    +
-                                                </button>
+                                        <div className="basket-title">
+                                            <Link to={`/perfume/${item.id}`} >
+                                                <h4>{item.name}</h4>
+                                            </Link>
+
+                                        </div>
+                                        <div className="basket-info-block">
+                                            <div className="basket-price-block">
+                                                <p style={{ fontWeight: 600 }}>2 365 руб.</p>
+                                                <p style={{ fontSize: 13, color: "#a1a1a1" }}>цена за 1 шт</p>
                                             </div>
-                                            <span style={{ fontSize: "0.7rem", color: "#a1a1a1" }}>шт</span>
+                                            <div className="counter">
+                                                <div className="basket-btns">
+                                                    <button className="handle-btn" onClick={() => handleDecrement(item.id)}>
+                                                        -
+                                                    </button>
+                                                    <div className="count">
+                                                        <span>{item.count}</span>
+                                                    </div>
+                                                    <button className="handle-btn" onClick={() => handleIncrement(item.id)}>
+                                                        +
+                                                    </button>
+                                                </div>
+                                                <span style={{ fontSize: "0.7rem", color: "#a1a1a1" }}>шт</span>
+                                            </div>
+                                            <div className="total-product-price">
+                                                <p style={{ fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "center", gap: 5 }}><Number n={item.count * item.price} /><span>руб.</span> </p>
+                                            </div>
                                         </div>
-                                        <div className="total-product-price">
-                                            <p style={{ fontWeight: 600 }}>{item.count * item.price} руб.</p>
+                                        <div className="product-out-block">
+                                            <button className="product-out" onClick={() => { deleteProduct(item.id) }}></button>
                                         </div>
                                     </div>
-                                    <div className="product-out-block">
-                                        <button className="product-out" onClick={() => { deleteProduct(item.id) }}></button>
-                                    </div>
-                                </div>
+
+                                </>
+
                             );
                         })}
                     </div>
@@ -127,7 +149,7 @@ export const Basket = ({ basket, setBasket }) => {
                                 <p>Итого:</p>
                             </div>
                             <div className="total-price">
-                                <h2 className="totalPrice">{totalPrice} руб.</h2>
+                                <h2 className="totalPrice"><Number n={totalPrice} /> руб.</h2>
                             </div>
                             <div className="payment">
                                 <button className="payment-btn">Оформить заказ</button>

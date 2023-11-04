@@ -41,9 +41,14 @@ export const Header = ({ perfumes, searchResult, setSearchResult }) => {
 
     };
 
+    const handleBackgroundClick = () => {
+        setSearchTerm('');
+        setShowSearchResults(false);
+    }
+
 
     return (
-        <div>
+        <div onClick={handleBackgroundClick}>
             <header>
                 <div className="call-block-phone">
                     <span className="icon-phone"></span>
@@ -54,7 +59,9 @@ export const Header = ({ perfumes, searchResult, setSearchResult }) => {
                 <nav>
 
                     <div className="logo-block">
-                        <img className="logo-img" src="../logo/marso.jpg" />
+                        <Link to={"/"}>
+                            <img className="logo-img" src="../logo/marso.jpg" />
+                        </Link>
                     </div>
                     <div className="call-block">
                         <span className="icon-phone"></span>
@@ -97,14 +104,14 @@ export const Header = ({ perfumes, searchResult, setSearchResult }) => {
                     <div className="perfume-link">
                         <div className="link">
                             <Link to={'/women'}>
-                                <h5>ЖЕНСКИЙ ПАРФЮМ</h5>
+                                <h5 className="perfume-link-text">ЖЕНСКИЙ ПАРФЮМ</h5>
                             </Link>
                         </div>
                     </div>
                     <div className="perfume-link">
                         <div className="link">
                             <Link to={'/men'}>
-                                <h5>МУЖСКОЙ ПАРФЮМ</h5>
+                                <h5 className="perfume-link-text">МУЖСКОЙ ПАРФЮМ</h5>
                             </Link>
                         </div>
 
@@ -112,7 +119,7 @@ export const Header = ({ perfumes, searchResult, setSearchResult }) => {
                     <div className="perfume-link">
                         <div className="link">
                             <Link to={'/unisex'}>
-                                <h5>UNISEX ПАРФЮМ</h5>
+                                <h5 className="perfume-link-text">UNISEX ПАРФЮМ</h5>
                             </Link>
                         </div>
                     </div>
