@@ -12,8 +12,8 @@ export const Footer = () => {
                     <div className="contact-footer">
                         <div className="call-footer-block">
                             <span className="icon-phone"></span>
-                            <a href="tel:88003010299" >
-                                <span>8 800 301-02-99</span>
+                            <a href="tel:87073579707" >
+                                <span>8 707 357-97-07</span>
                             </a>
                         </div>
                         <div className="telegram">
@@ -21,14 +21,14 @@ export const Footer = () => {
                                 <img className="telegram-img" src="https://marso.su/bitrix/components/aspro/social.info.mshop/images/svg/telegram.svg" />
                             </a>
                         </div>
-                        <div className="payment">
+                        {/* <div className="payment">
                             <img className="footer-img" src="../logo/footer.png" />
-                        </div>
+                        </div> */}
                         <div className="footer-text">
-                            <p style={{ fontSize: 13 }}>2023 © MARSO. Все права защищены.</p>
+                            <p style={{ fontSize: 10 }}>2023 © MARSO. Все права защищены.</p>
                         </div>
                     </div>
-                    <div className="main-footer">
+                    {/* <div className="main-footer">
                         <div className="footer-links">
                             <Link to={"/#"} >
                                 <p className="footer-link weight">Важное</p>
@@ -39,8 +39,8 @@ export const Footer = () => {
                                 </div>
                             </Link>
                         </div>
-                    </div>
-                    <div className="main-footer">
+                    </div> */}
+                    <div className="main-footer company">
                         <div className="footer-links">
                             <Link to={"/#"} >
                                 <p className="footer-link weight">Компания</p>
@@ -48,12 +48,12 @@ export const Footer = () => {
                             <Link to={"/#"}>
                                 <p className="footer-link">О компании</p>
                             </Link>
-                            <Link to={"/#"}>
+                            {/* <Link to={"/#"}>
                                 <p className="footer-link">Новости</p>
-                            </Link>
-                            <Link to={"/#"}>
+                            </Link> */}
+                            {/* <Link to={"/#"}>
                                 <p className="footer-link">Маркетинг план</p>
-                            </Link>
+                            </Link> */}
                             <Link to={"/#"}>
                                 <p className="footer-link">Каталог продукции MARSO (часть 1)</p>
                             </Link>
@@ -62,7 +62,7 @@ export const Footer = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className="main-footer">
+                    {/* <div className="main-footer">
                         <div className="footer-links">
                             <Link to={"/#"} >
                                 <p className="footer-link weight">Информация</p>
@@ -77,7 +77,7 @@ export const Footer = () => {
                                 <p className="footer-link">Политика конфиденциальности</p>
                             </Link>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="main-footer">
                         <div className="footer-links">
                             <Link to={"/#"} >
@@ -89,9 +89,9 @@ export const Footer = () => {
                             <Link to={"/#"}>
                                 <p className="footer-link">Условия доставки</p>
                             </Link>
-                            <Link to={"/#"}>
+                            {/* <Link to={"/#"}>
                                 <p className="footer-link">Возврат и обмен</p>
-                            </Link>
+                            </Link> */}
                             <Link to={"/#"}>
                                 <p className="footer-link">Сертификаты</p>
                             </Link>

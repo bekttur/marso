@@ -32,7 +32,7 @@ footer {
 
 .footer-link {
     width: 150px;
-    font-size: 13px;
+    font-size: 11px;
     transition: 0.2s all ease;
 }
 
@@ -79,6 +79,12 @@ footer {
 
 
 @media (min-width: 721px) and (max-width: 1024px) {
+    .block{
+        margin: 0px 45px;
+    }
+    .company{
+        display: none;
+    }
     .footer-block{
         padding: 5px;
     }
@@ -86,6 +92,6 @@ footer {
         width: 100px;
     }
     .call-footer-block{
-        font-size: 13px;
+        font-size: 11px;
     }
 }

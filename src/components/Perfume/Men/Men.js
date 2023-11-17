@@ -100,7 +100,7 @@ export const Men = ({ men, basket }) => {
                                             <span className="icon-stock"></span>
                                             <span>Есть в наличии</span>
                                         </div>
-                                        <p style={{ fontWeight: 600 }}>{item.price} руб.</p>
+                                        <p style={{ fontWeight: 600 }}>{item.price} тг.</p>
                                     </div>
                                 </Link>
                                 {hoverStates[index] && (item.visible && (

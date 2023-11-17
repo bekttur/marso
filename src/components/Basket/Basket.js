@@ -112,7 +112,7 @@ export const Basket = ({ basket, setBasket }) => {
                                         </div>
                                         <div className="basket-info-block">
                                             <div className="basket-price-block">
-                                                <p style={{ fontWeight: 600 }}>2 365 руб.</p>
+                                                <p style={{ fontWeight: 600 }}>18 000 тг.</p>
                                                 <p style={{ fontSize: 13, color: "#a1a1a1" }}>цена за 1 шт</p>
                                             </div>
                                             <div className="counter">
@@ -130,7 +130,7 @@ export const Basket = ({ basket, setBasket }) => {
                                                 <span style={{ fontSize: "0.7rem", color: "#a1a1a1" }}>шт</span>
                                             </div>
                                             <div className="total-product-price">
-                                                <p style={{ fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "center", gap: 5 }}><Number n={item.count * item.price} /><span>руб.</span> </p>
+                                                <p style={{ fontWeight: 600, display: "flex", alignItems: "center", justifyContent: "center", gap: 5 }}><Number n={item.count * item.price} /><span>тг.</span> </p>
                                             </div>
                                         </div>
                                         <div className="product-out-block">
@@ -149,7 +149,7 @@ export const Basket = ({ basket, setBasket }) => {
                                 <p>Итого:</p>
                             </div>
                             <div className="total-price">
-                                <h2 className="totalPrice"><Number n={totalPrice} /> руб.</h2>
+                                <h2 className="totalPrice"><Number n={totalPrice} /> тг.</h2>
                             </div>
                             <div className="payment">
                                 <button className="payment-btn">Оформить заказ</button>
@@ -167,7 +167,6 @@ export const Basket = ({ basket, setBasket }) => {
                     </div>
                 </div>
             )}
-
         </div>
     );
 };

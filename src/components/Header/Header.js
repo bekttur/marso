@@ -65,8 +65,8 @@ export const Header = ({ perfumes, searchResult, setSearchResult }) => {
                     </div>
                     <div className="call-block">
                         <span className="icon-phone"></span>
-                        <a href="tel:88003010299" >
-                            <span>8 800 301-02-99</span>
+                        <a href="tel:87073579707" >
+                            <span>8 707 357-97-07</span>
                         </a>
                     </div>
                     <div className="search-block">
