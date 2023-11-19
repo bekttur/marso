@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Basket.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSpring, animated } from 'react-spring'
+import axios from "axios";
 
 
 function Number({ n }) {
@@ -14,9 +15,10 @@ function Number({ n }) {
     return <animated.div>{number.to((n) => n.toFixed(0))}</animated.div>
 }
 
+
+
+
 export const Basket = ({ basket, setBasket }) => {
-
-
 
     const [totalPrice, setTotalPrice] = useState(0)
 
@@ -78,6 +80,106 @@ export const Basket = ({ basket, setBasket }) => {
 
         console.log(updatedBasket);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // для запрос в телеграм бот
+    const navigate = useNavigate();
+
+    const clearData = {
+        name: '',
+        phone: '',
+        address: '',
+        basket: basket
+    }
+
+    const [isModal, setIsModal] = useState(false)
+    const [isSuccess, setIsSuccess] = useState(false)
+
+    const [data, setData] = useState(clearData)
+
+    console.log(data);
+
+
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+    useEffect(() => {
+        // Проверяем, есть ли пустые поля в данных пользователя
+        const isEmpty = !data.name || !data.phone || !data.address;
+        setIsButtonDisabled(isEmpty);
+    }, [data]);
+
+
+
+    const handlePlaceOrder = () => {
+        setIsModal(true)
+    };
+
+
+    const confirmationOrder = () => {
+        const TOKEN = "6418207132:AAGXIk34bTGyoBzif6FGYgusAR7TZGr6gxc"; // Замените на токен вашего бота
+        const CHAT_ID = "637137504"; // Замените на идентификатор вашего чата
+
+        // Собираем информацию о заказе
+        const userInfo = `Имя: ${data.name} \nТелефон: ${data.phone} \nАдрес доставки: ${data.address} \n`;
+        const orderInfo = basket.map(item => `${item.name} - ${item.count} шт.`).join('\n');
+
+        // Отправляем уведомление в Telegram
+        fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                chat_id: CHAT_ID,
+                text: `Новый заказ:\n\nКонтактные данные:\n${userInfo}\n\nТовары: \n${orderInfo}\n\nИтого: ${totalPrice} тг.`,
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Message sent successfully:', data);
+                // Дополнительные действия после успешной отправки
+            })
+            .catch(error => {
+                console.error('Error sending message:', error);
+                // Обработка ошибки
+            });
+
+        setBasket([])
+        localStorage.setItem('basket', JSON.stringify(basket));
+        setData({
+            name: '',
+            phone: '',
+            address: '',
+            basket: basket
+        })
+        setIsModal(false);
+        setIsSuccess(true)
+    }
+
+
+
+
+
+    const handleModalClick = () => {
+        setIsModal(false);
+    }
+    const handleSuccessClick = () => {
+        setIsSuccess(false)
+        navigate("/");
+    }
+
+
 
 
 
@@ -152,7 +254,7 @@ export const Basket = ({ basket, setBasket }) => {
                                 <h2 className="totalPrice"><Number n={totalPrice} /> тг.</h2>
                             </div>
                             <div className="payment">
-                                <button className="payment-btn">Оформить заказ</button>
+                                <button className="payment-btn" onClick={handlePlaceOrder}>Оформить заказ</button>
                             </div>
                         </div>
                     </div>
@@ -164,6 +266,51 @@ export const Basket = ({ basket, setBasket }) => {
                     <div className="basket-null-text">
                         <p style={{ fontSize: 36, color: "#bababa", marginBottom: 42 }}>Ваша корзина пуста</p>
                         <p><span><Link to={"/"} style={{ color: "#009897" }}>Нажмите здесь</Link></span>, чтобы продолжить покупки</p>
+                    </div>
+                </div>
+            )}
+
+
+
+
+
+
+
+
+            {isModal && (
+                <div className='modal-body'>
+                    <div className='modal-block'>
+                        <div className="close-btn" onClick={handleModalClick}>
+                        </div>
+                        <h3 style={{ color: "#00adab" }}>Оформление заказа</h3>
+                        <div className="modal">
+                            <div className="modal-inputs">
+                                <input type="text" className="modal-input" value={data.name} onChange={(e) => { setData(prev => ({ ...prev, name: e.target.value })) }} placeholder="Имя..." />
+                                <input type="tel" className="modal-input" value={data.phone} onChange={(e) => { setData(prev => ({ ...prev, phone: e.target.value })) }} placeholder="Номер телефона..." />
+                                <input type="text" className="modal-input" value={data.address} onChange={(e) => { setData(prev => ({ ...prev, address: e.target.value })) }} placeholder="Адрес доставки..." />
+                            </div>
+                            <div className='modal-btns'>
+                                <button className="payment-btn" onClick={confirmationOrder} disabled={isButtonDisabled}>Подтвердить заказ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+
+            {isSuccess && (
+                <div class="modal-body">
+                    <div class="modal-block">
+                        <div class="success-card_img">
+                            <div class="success-wrapper"> <svg class="animated-check" viewBox="0 0 24 24">
+                                <path d="M4.1 12.7L9 17.6 20.3 6.3" fill="none" /> </svg>
+                            </div>
+                        </div>
+                        <div class="success-card_text">
+                            <h3>Спасибо за покупку.</h3>
+                            <p>Мы свяжемся с вами в ближайшее время</p>
+                            <button className="payment-btn" onClick={handleSuccessClick}>Главная страница</button>
+                        </div>
                     </div>
                 </div>
             )}

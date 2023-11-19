@@ -11,6 +11,11 @@ import { Basket } from './components/Basket/Basket';
 import { Catalog } from './components/Catalog/Catalog';
 import BasketBtn from './components/Basket/BasketBtn/BasketBtn';
 import Main from './components/Main/Main';
+import About from './components/Footer/Pages/About/About';
+import TermsOfPayment from './components/Footer/Pages/TermsOfPayment/TermsOfPayment';
+import Delivery from './components/Footer/Pages/Delivery/Delivery';
+import Certificate from './components/Footer/Pages/Certificate/Certificate';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
 
@@ -146,7 +151,11 @@ function App() {
           <Route path={"perfume/:id"} element={<Page perfumes={perfumes} basket={basket} setBasket={setBasket} />} />
           <Route path={"basket"} element={<Basket basket={basket} setBasket={setBasket} />} />
           <Route path={"catalog"} element={<Catalog basket={basket} setBasket={setBasket} searchResult={searchResult} setSearchResult={setSearchResult} />} />
-          <Route path={"*"} element={<div><h1>Not found!</h1></div>} />
+          <Route path={"company"} element={<About />} />
+          <Route path={"payment"} element={<TermsOfPayment />} />
+          <Route path={"delivery"} element={<Delivery />} />
+          <Route path={"cert"} element={<Certificate />} />
+          <Route path={"*"} element={<NotFound />} />
         </Route>
       </Routes>
       <BasketBtn count={count} />
