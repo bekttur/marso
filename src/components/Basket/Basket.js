@@ -128,7 +128,7 @@ export const Basket = ({ basket, setBasket }) => {
 
     const confirmationOrder = () => {
         const TOKEN = "6418207132:AAGXIk34bTGyoBzif6FGYgusAR7TZGr6gxc"; // Замените на токен вашего бота
-        const CHAT_ID = "637137504"; // Замените на идентификатор вашего чата
+        const CHAT_ID = "564023521"; // Замените на идентификатор вашего чата
 
         // Собираем информацию о заказе
         const userInfo = `Имя: ${data.name} \nТелефон: ${data.phone} \nАдрес доставки: ${data.address} \n`;
