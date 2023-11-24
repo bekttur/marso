@@ -77,6 +77,7 @@ export const Unisex = ({ unisex, basket }) => {
         });
     
         setProducts(updatedProducts);
+        window.location.reload()
     };
     
 

@@ -74,6 +74,7 @@ export const Women = ({ women, basket }) => {
         });
     
         setProducts(updatedProducts);
+        window.location.reload()
     };
     
 

@@ -48,10 +48,10 @@ export const Footer = () => {
                             <Link to={"/payment"}>
                                 <p className="footer-link">Условия оплаты</p>
                             </Link>
-                            <Link to={"/#"}>
+                            <Link to={"/delivery"}>
                                 <p className="footer-link">Условия доставки</p>
                             </Link>
-                            <Link to={"/#"}>
+                            <Link to={"/cert"}>
                                 <p className="footer-link">Сертификаты</p>
                             </Link>
                         </div>

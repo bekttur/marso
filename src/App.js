@@ -9,7 +9,7 @@ import { Unisex } from './components/Perfume/Unisex/Unisex';
 import { Footer } from './components/Footer/Footer';
 import { Basket } from './components/Basket/Basket';
 import { Catalog } from './components/Catalog/Catalog';
-import BasketBtn from './components/Basket/BasketBtn/BasketBtn';
+import {BasketBtn} from './components/Basket/BasketBtn/BasketBtn';
 import Main from './components/Main/Main';
 import About from './components/Footer/Pages/About/About';
 import TermsOfPayment from './components/Footer/Pages/TermsOfPayment/TermsOfPayment';
@@ -117,7 +117,7 @@ function App() {
       { id: 88, name: "U233", price: 18000, count: 1, "visible": true, img: "../perfumes/unisex/u207.jpg", aroma: "древесный, фужерный", top_notes: "ягоды можжевельника", heart_notes: "гваяк", base_notes: "нагармота и пачули", description: 'Аромат свежести леса после дождя. Смело стартует изысканно-терпкими ягодами можжевельника, которые тут же обволакивает и смягчает дымный, немного смолистый гваяк. Чуть позже чувствуются проступающие древесные и землистые ноты нагармоты и пачули. Густой шлейф остается с вами надолго, увлекая, словно густой лес за собой все глубже и глубже.' },
       { id: 89, name: "U234", price: 18000, count: 1, "visible": true, img: "../perfumes/unisex/u205.jpg", aroma: "восточный, цветочный", top_notes: "экзотические цветы и специи", heart_notes: "гвоздика (цветок) и ландыш", base_notes: "амбра, ваниль и мускус", description: 'Чувственный, мощный и соблазнительный. Сексуальные экзотические цветы, приправленные специями, буквально ошеломляют при первом вдохе. Но аромат на этом не собирается останавливаться, а только набирает обороты: тягучий и пушистый ладан с ванильными нотками влечет в сладострастные объятия и долго не отпускает. На протяжении всего звучания аромат переливается, вспыхивая то цветами, то специями, то неожиданно уютной и нежной теплотой кожи. Затем все повторяется снова и снова.' },
       { id: 90, name: "U235", price: 18000, count: 1, "visible": true, img: "../perfumes/unisex/u206.jpg", aroma: "восточный, гурманский", top_notes: "-", heart_notes: " кофе, ром, карамель, гелиотроп, сахарный тростник, тёмный шоколад, сандаловое дерево, миндаль", base_notes: "амбра, ваниль и мускус", description: 'Аромат - провокация. Насколько далеко вы готовы зайти? Насколько вы смелые, чтобы носить его с гордостью? Насколько вы экстравагантны, чтобы признать его потрясающим? Насыщенный и головокружительный, местами ошеломляющий и вгоняющий в ступор, но определенно заостряющий на себе внимание. Пленительный и обольщающий.' },
-      
+
     ],
   })
 
@@ -133,12 +133,9 @@ function App() {
 
 
   const [searchResult, setSearchResult] = useState([]);
-  
-  const [count, setCount] = useState(0);
 
-  useEffect((count) => {
-    setCount(basket.length);
-  }, [basket]);
+
+
 
   return (
     <BrowserRouter>
@@ -158,7 +155,7 @@ function App() {
           <Route path={"*"} element={<NotFound />} />
         </Route>
       </Routes>
-      <BasketBtn count={count} />
+      <BasketBtn basket={basket} />
       <Footer />
     </BrowserRouter>
   );

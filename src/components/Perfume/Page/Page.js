@@ -74,6 +74,8 @@ export const Page = ({ perfumes, basket, setBasket }) => {
         return product;
       });
     });
+    window.location.reload()
+
   };
 
   return (
@@ -94,32 +96,32 @@ export const Page = ({ perfumes, basket, setBasket }) => {
                       <span>Есть в наличии</span>
                     </div>
                     {(item.visible ? (
-                    <div className="page-hover-block">
-                      <div className="main-basket-btns">
-                        <button className="handle-btn" onClick={() => handleDecrement(item.id)}>
-                          -
-                        </button>
-                        <div className="count">
-                          <span>{item.count}</span>
+                      <div className="page-hover-block">
+                        <div className="main-basket-btns">
+                          <button className="handle-btn" onClick={() => handleDecrement(item.id)}>
+                            -
+                          </button>
+                          <div className="count">
+                            <span>{item.count}</span>
+                          </div>
+                          <button className="handle-btn" onClick={() => handleIncrement(item.id)}>
+                            +
+                          </button>
                         </div>
-                        <button className="handle-btn" onClick={() => handleIncrement(item.id)}>
-                          +
-                        </button>
+                        <div className="main-basket-btn-block">
+                          <button className="main-basket-btn" disabled={item.count === 0 ? true : false} onClick={() => addBasket1(item.id)}>
+                            В КОРЗИНУ
+                          </button>
+                        </div>
                       </div>
-                      <div className="main-basket-btn-block">
-                        <button className="main-basket-btn" disabled={item.count === 0 ? true : false} onClick={() => addBasket1(item.id)}>
-                          В КОРЗИНУ
-                        </button>
-                      </div>
-                    </div>
                     ) : (
-                    <div className="page-hover-block">
-                      <div className="main-basket-btn-block">
-                        <Link to={"/basket"} className="main-basket-btn">
-                          В КОРЗИНЕ
-                        </Link>
+                      <div className="page-hover-block">
+                        <div className="main-basket-btn-block">
+                          <Link to={"/basket"} className="main-basket-btn">
+                            В КОРЗИНЕ
+                          </Link>
+                        </div>
                       </div>
-                    </div>
                     ))}
                   </div>
 

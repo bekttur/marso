@@ -179,6 +179,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
     }
     .perfume-title{
         line-height: 15px;

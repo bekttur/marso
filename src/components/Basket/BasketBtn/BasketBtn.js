@@ -2,7 +2,14 @@ import React, { useEffect, useState } from 'react'
 import "./BasketBtn.css"
 import { Link, useParams } from 'react-router-dom'
 
-const BasketBtn = ({ count }) => {
+export const BasketBtn = ({ basket }) => {
+
+    const [count, setCount] = useState(0)
+    useEffect(() => {
+        const totalCount = basket.length;
+        setCount(totalCount);
+    }, [basket]);
+
 
     return (
         <Link to={"/basket"}>
@@ -13,5 +20,3 @@ const BasketBtn = ({ count }) => {
         </Link>
     )
 }
-
-export default BasketBtn

@@ -60,7 +60,7 @@ const Main = () => {
                 </div>
                 <div className='main-info'>
                     <img className='main-info-img' src='./icon/2.png' />
-                    <p className='main-info-text'>Доставка по всей России</p>
+                    <p className='main-info-text'>Доставка по всей Казахстан</p>
                 </div>
                 <div className='main-info'>
                     <img className='main-info-img big-img' src='./icon/3.png' />

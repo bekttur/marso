@@ -108,7 +108,6 @@ export const Basket = ({ basket, setBasket }) => {
 
     const [data, setData] = useState(clearData)
 
-    console.log(data);
 
 
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
@@ -126,43 +125,48 @@ export const Basket = ({ basket, setBasket }) => {
     };
 
 
+    
     const confirmationOrder = () => {
         const TOKEN = "6418207132:AAGXIk34bTGyoBzif6FGYgusAR7TZGr6gxc"; // Замените на токен вашего бота
-        const CHAT_ID = "564023521"; // Замените на идентификатор вашего чата
+        const CHAT_IDS = ["637137504", "564023521", "1142989702"];
+        
 
         // Собираем информацию о заказе
         const userInfo = `Имя: ${data.name} \nТелефон: ${data.phone} \nАдрес доставки: ${data.address} \n`;
         const orderInfo = basket.map(item => `${item.name} - ${item.count} шт.`).join('\n');
 
-        // Отправляем уведомление в Telegram
-        fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                chat_id: CHAT_ID,
-                text: `Новый заказ:\n\nКонтактные данные:\n${userInfo}\n\nТовары: \n${orderInfo}\n\nИтого: ${totalPrice} тг.`,
+        CHAT_IDS.forEach(chatId => {
+            // Отправляем уведомление в Telegram
+            fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: `Новый заказ:\n\nКонтактные данные:\n${userInfo}\n\nТовары: \n${orderInfo}\n\nИтого: ${totalPrice} тг.`,
+                })
             })
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Message sent successfully:', data);
-                // Дополнительные действия после успешной отправки
-            })
-            .catch(error => {
-                console.error('Error sending message:', error);
-                // Обработка ошибки
-            });
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Message sent successfully:', data);
+                    // Дополнительные действия после успешной отправки
+                })
+                .catch(error => {
+                    console.error('Error sending message:', error);
+                    // Обработка ошибки
+                });
 
-        setBasket([])
-        localStorage.setItem('basket', JSON.stringify(basket));
-        setData({
-            name: '',
-            phone: '',
-            address: '',
-            basket: basket
+            setBasket([])
+            localStorage.setItem('basket', JSON.stringify(basket));
+            setData({
+                name: '',
+                phone: '',
+                address: '',
+                basket: basket
+            })
         })
+
         setIsModal(false);
         setIsSuccess(true)
     }

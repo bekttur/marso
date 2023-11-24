@@ -40,6 +40,9 @@ export const Men = ({ men, basket }) => {
     };
 
 
+    
+    
+
     const addBasket = (id) => {
         let itemAdded = false; // Flag variable to track whether the item was added to the basket
     
@@ -72,6 +75,7 @@ export const Men = ({ men, basket }) => {
         });
     
         setProducts(updatedProducts);
+        window.location.reload()
     };
     
 
