@@ -13,7 +13,7 @@ bot.start((ctx) => {
   Нажмите на кнопку ниже, чтобы открыть сайт!`, {
     reply_markup: {
       inline_keyboard: [
-        [{ text: "🗂️ Открыть", web_app: { url: "https://marso.kz/" } }],
+        [{ text: "🗂️ Открыть", web_app: { url: "https://marso-telegram-bot.strattonit.ru/" } }],
       ]
     }
   }
