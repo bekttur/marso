@@ -74,7 +74,6 @@ export const Page = ({ perfumes, basket, setBasket }) => {
         return product;
       });
     });
-    window.location.reload()
 
   };
 
