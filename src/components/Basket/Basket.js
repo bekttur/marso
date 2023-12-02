@@ -127,7 +127,7 @@ export const Basket = ({ basket, setBasket }) => {
 
     
     const confirmationOrder = () => {
-        const TOKEN = "6418207132:AAGXIk34bTGyoBzif6FGYgusAR7TZGr6gxc"; // Замените на токен вашего бота
+        const TOKEN = "6344442467:AAGHuL2eIelzu-FslbXhJgVbw2NlEyQhgXY"; // Замените на токен вашего бота
         const CHAT_IDS = ["637137504", "564023521", "1142989702"];
         
 
