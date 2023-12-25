@@ -16,10 +16,17 @@ export const Footer = () => {
                                 <span>8 778 243-33-18</span>
                             </a>
                         </div>
-                        <div className="telegram">
-                            <a href="https://t.me/marso_su" >
-                                <img className="telegram-img" src="https://marso.su/bitrix/components/aspro/social.info.mshop/images/svg/telegram.svg" />
-                            </a>
+                        <div class="contact-tg-wh">
+                            <div className="telegram">
+                                <a href="https://t.me/noneuser05" >
+                                    <img className="telegram-img" src="https://marso.su/bitrix/components/aspro/social.info.mshop/images/svg/telegram.svg" />
+                                </a>
+                            </div>
+                            <div className="whatsapp">
+                                <a href="https://wa.me//+77007754181?text=Здравствуйте, меня интересует продукция Marso!" >
+                                    <img className="whatsapp-img" src="https://marso.su/bitrix/components/aspro/social.info.mshop/images/svg/whatsapp.svg" />
+                                </a>
+                            </div>
                         </div>
                         <div className="footer-text">
                             <p style={{ fontSize: 10 }}>2023 © MARSO. Все права защищены.</p>

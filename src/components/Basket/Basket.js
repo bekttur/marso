@@ -194,7 +194,7 @@ export const Basket = ({ basket, setBasket }) => {
             {basket.length !== 0 ? (
                 <div className="basket-block">
                     <div className="basket-nav">
-                        <div>
+                        <div style={{backgroundColor: "#f9f9f9"}}>
                             <p className="basket-text">В корзине {count} {productText} </p>
                         </div>
                         <div className="clear">

@@ -44,6 +44,7 @@
     line-height: 25px;
     font-weight: 600;
     border-bottom: 2px solid #01b1af;
+    background-color: #f9f9f9;
 }
 
 .basket-products {
@@ -397,10 +398,6 @@
         font-size: 13px;
     }
 
-    .total {
-        margin-bottom: -25px;
-    }
-
     .modal-block {
         width: 280px;
         top: 260px;
@@ -448,9 +445,6 @@
         font-size: 13px;
     }
 
-    .total {
-        margin-bottom: -25px;
-    }
 
     .modal-block {
         width: 330px;
@@ -501,9 +495,6 @@
         font-size: 13px;
     }
 
-    .total {
-        margin-bottom: -25px;
-    }
 
     .modal-block {
         width: 350px;

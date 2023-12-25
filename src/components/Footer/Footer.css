@@ -21,6 +21,13 @@ footer {
     gap: 15px;
 }
 
+.contact-tg-wh {
+    display: flex;
+}
+.telegram {
+    margin-right: 15px;
+}
+
 .call-footer-block {
     font-size: 1.2rem;
     display: flex;

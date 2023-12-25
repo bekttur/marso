@@ -129,7 +129,31 @@ nav {
 .call-block-phone {
     display: none;
 }
+.nav-button {
+    width: 10%;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 
+}
+.nav-button-link {
+    padding: 4px 15px 3px 15px;
+    background: #00a396;
+    font-size: 0.7rem;
+    line-height: 20px;
+    border: 1px solid #00a396;
+    text-shadow: none;
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    border-color: #00a396;
+    color: #fff;
+    border-radius: 2px;
+    font-weight: 600;
+    cursor: pointer;
+}
 
 
 
@@ -154,6 +178,16 @@ nav {
 
     .call-block {
         display: none;
+    }
+
+    
+    .nav-button-link {
+        padding: 4px;
+        height: fit-content;
+        line-height: 10px;
+        background: #00a396;
+        font-size: 8px;
+        text-align: center;
     }
 
     .logo-img {
@@ -191,6 +225,14 @@ nav {
         align-items: center;
         justify-content: center;
         gap: 5px;
+    }
+    .nav-button-link {
+        padding: 4px;
+        height: fit-content;
+        line-height: 10px;
+        background: #00a396;
+        font-size: 8px;
+        text-align: center;
     }
 
     .logo-img {
@@ -233,6 +275,14 @@ nav {
         align-items: center;
         justify-content: center;
         gap: 5px;
+    }
+    .nav-button-link {
+        padding: 8px;
+        height: fit-content;
+        line-height: 15px;
+        background: #00a396;
+        font-size: 12px;
+        text-align: center;
     }
 
     .logo-img {

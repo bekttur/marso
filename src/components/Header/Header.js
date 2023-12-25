@@ -52,8 +52,8 @@ export const Header = ({ perfumes, searchResult, setSearchResult }) => {
             <header>
                 <div className="call-block-phone">
                     <span className="icon-phone"></span>
-                    <a href="tel:87073579707" >
-                        <span>8 707 357-97-07</span>
+                    <a href="tel:87782433318" >
+                        <span style={{backgroundColor: "#f7f7f9"}}>8 778 243-33-18</span>
                     </a>
                 </div>
                 <nav>
@@ -65,8 +65,8 @@ export const Header = ({ perfumes, searchResult, setSearchResult }) => {
                     </div>
                     <div className="call-block">
                         <span className="icon-phone"></span>
-                        <a href="tel:87073579707" >
-                            <span>8 707 357-97-07</span>
+                        <a href="tel:87782433318" >
+                            <span>8 778 243-33-18</span>
                         </a>
                     </div>
                     <div className="search-block">
@@ -99,11 +99,15 @@ export const Header = ({ perfumes, searchResult, setSearchResult }) => {
                             )}
                         </div>
                     </div>
+                    <div className="nav-button">
+                        <a href="https://marso.kg/auth/registration/?ref=989243499" className="nav-button-link">Стать партнером
+                        </a>
+                    </div>
                 </nav>
                 <div className="perfume-links">
                     <div className="perfume-link">
                         <div className="link">
-                            <Link to={'/women'}>
+                            <Link to={'/'}>
                                 <h5 className="perfume-link-text">ЖЕНСКИЙ ПАРФЮМ</h5>
                             </Link>
                         </div>

@@ -141,9 +141,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Header perfumes={perfumes} searchResult={searchResult} setSearchResult={setSearchResult} />} >
-          <Route path={""} element={<Main men={perfumes.men} basket={basket} setBasket={setBasket} />} />
+          {/* <Route path={""} element={<Main men={perfumes.men} basket={basket} setBasket={setBasket} />} /> */}
           <Route path={"men"} element={<Men men={perfumes.men} basket={basket} setBasket={setBasket} />} />
-          <Route path={"women"} element={<Women women={perfumes.women} basket={basket} setBasket={setBasket} />} />
+          <Route path={""} element={<Women women={perfumes.women} basket={basket} setBasket={setBasket} />} />
           <Route path={"unisex"} element={<Unisex unisex={perfumes.unisex} basket={basket} setBasket={setBasket} />} />
           <Route path={"perfume/:id"} element={<Page perfumes={perfumes} basket={basket} setBasket={setBasket} />} />
           <Route path={"basket"} element={<Basket basket={basket} setBasket={setBasket} />} />
