@@ -98,6 +98,7 @@ export const Women = ({ women, basket }) => {
                                     </div>
                                     <div className="perfume-title">
                                         <p style={{ color: "#009897", fontSize: 14 }}>{item.name}</p>
+                                        <p style={{ color: "#009897", fontSize: 14 }}>{item.perfume}</p>
                                         <div className="stock">
                                             <span className="icon-stock"></span>
                                             <span>Есть в наличии</span>
