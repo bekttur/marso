@@ -125,6 +125,9 @@ export const Page = ({ perfumes, basket, setBasket }) => {
                   </div>
 
                   <div className="products-info">
+                    <br />
+                    <p>{item.perfume}</p>
+                    <br />
                     <p>{item.description}</p>
                     <br />
                     <p><b>Верхние ноты</b>: <span>{item.top_notes}</span></p>
