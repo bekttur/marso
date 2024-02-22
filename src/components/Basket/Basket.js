@@ -293,7 +293,12 @@ export const Basket = ({ basket, setBasket }) => {
 
       {isModal && (
         <div className='modal-body'>
-          <div className='modal-block'>
+          <motion.div
+            initial={{ y: -250, opacity: 1 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.4, type: 'spring' }}
+            className='modal-block'
+          >
             <div className='close-btn' onClick={handleModalClick}></div>
             <h3 style={{ color: '#00adab' }}>Оформление заказа</h3>
             <div className='modal'>
@@ -336,7 +341,7 @@ export const Basket = ({ basket, setBasket }) => {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       )}
 
