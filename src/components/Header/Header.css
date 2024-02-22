@@ -4,6 +4,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0;
     flex-direction: column;
     background-color: white;
 }

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { useParams } from "react-router";
-import "./Page.css"
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { useParams } from 'react-router';
+import './Page.css';
+import { Link } from 'react-router-dom';
+import {motion} from 'framer-motion'
 
 export const Page = ({ perfumes, basket, setBasket }) => {
   let { id } = useParams();
@@ -74,67 +75,89 @@ export const Page = ({ perfumes, basket, setBasket }) => {
         return product;
       });
     });
-
   };
 
   return (
-    <div className="page-block">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.7 }}
+      className='page-block'
+    >
       {products.map((item) => {
         if (item.id == id) {
           return (
-            <div key={item.id} className="product-page">
-              <h1 className="title-header">{item.name}</h1>
-              <div className="product-info-block">
-                <div className="product-img-block">
-                  <img className="page-img" src={item.img} />
+            <div key={item.id} className='product-page'>
+              <h1 className='title-header'>{item.name}</h1>
+              <div className='product-info-block'>
+                <div className='product-img-block'>
+                  <img className='page-img' src={item.img} />
                 </div>
-                <div className="product-title-block">
-                  <div className="page-buy-block">
-                    <div className="page-stock">
-                      <span className="icon-stock"></span>
+                <div className='product-title-block'>
+                  <div className='page-buy-block'>
+                    <div className='page-stock'>
+                      <span className='icon-stock'></span>
                       <span>Есть в наличии</span>
                     </div>
-                    {(item.visible ? (
-                      <div className="page-hover-block">
-                        <div className="main-basket-btns">
-                          <button className="handle-btn" onClick={() => handleDecrement(item.id)}>
+                    {item.visible ? (
+                      <div className='page-hover-block'>
+                        <div className='main-basket-btns'>
+                          <button
+                            className='handle-btn'
+                            onClick={() => handleDecrement(item.id)}
+                          >
                             -
                           </button>
-                          <div className="count">
+                          <div className='count'>
                             <span>{item.count}</span>
                           </div>
-                          <button className="handle-btn" onClick={() => handleIncrement(item.id)}>
+                          <button
+                            className='handle-btn'
+                            onClick={() => handleIncrement(item.id)}
+                          >
                             +
                           </button>
                         </div>
-                        <div className="main-basket-btn-block">
-                          <button className="main-basket-btn" disabled={item.count === 0 ? true : false} onClick={() => addBasket1(item.id)}>
+                        <div className='main-basket-btn-block'>
+                          <button
+                            className='main-basket-btn'
+                            disabled={item.count === 0 ? true : false}
+                            onClick={() => addBasket1(item.id)}
+                          >
                             В КОРЗИНУ
                           </button>
                         </div>
                       </div>
                     ) : (
-                      <div className="page-hover-block">
-                        <div className="main-basket-btn-block">
-                          <Link to={"/basket"} className="main-basket-btn">
+                      <div className='page-hover-block'>
+                        <div className='main-basket-btn-block'>
+                          <Link to={'/basket'} className='main-basket-btn'>
                             В КОРЗИНЕ
                           </Link>
                         </div>
                       </div>
-                    ))}
+                    )}
                   </div>
 
-                  <div className="products-info">
+                  <div className='products-info'>
                     <br />
                     <p>{item.perfume}</p>
                     <br />
                     <p>{item.description}</p>
                     <br />
-                    <p><b>Верхние ноты</b>: <span>{item.top_notes}</span></p>
-                    <p><b>Ноты сердца</b>: <span>{item.heart_notes}</span></p>
-                    <p><b>Базовые ноты</b>: <span>{item.base_notes}</span></p>
+                    <p>
+                      <b>Верхние ноты</b>: <span>{item.top_notes}</span>
+                    </p>
+                    <p>
+                      <b>Ноты сердца</b>: <span>{item.heart_notes}</span>
+                    </p>
+                    <p>
+                      <b>Базовые ноты</b>: <span>{item.base_notes}</span>
+                    </p>
                     <br />
-                    <p><b>Аромат</b>: <span>{item.aroma}</span></p>
+                    <p>
+                      <b>Аромат</b>: <span>{item.aroma}</span>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -143,6 +166,6 @@ export const Page = ({ perfumes, basket, setBasket }) => {
         }
         return null;
       })}
-    </div>
+    </motion.div>
   );
 };

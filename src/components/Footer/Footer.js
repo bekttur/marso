@@ -12,18 +12,18 @@ export const Footer = () => {
                     <div className="contact-footer">
                         <div className="call-footer-block">
                             <span className="icon-phone"></span>
-                            <a href="tel:87782433318">
-                                <span>8 778 243-33-18</span>
+                            <a href="tel:87073579707">
+                                <span>8 707 3579 707</span>
                             </a>
                         </div>
                         <div class="contact-tg-wh">
-                            <div className="telegram">
+                            {/* <div className="telegram">
                                 <a href="https://t.me/noneuser05" >
                                     <img className="telegram-img" src="https://marso.su/bitrix/components/aspro/social.info.mshop/images/svg/telegram.svg" />
                                 </a>
-                            </div>
+                            </div> */}
                             <div className="whatsapp">
-                                <a href="https://wa.me//+77007754181?text=Здравствуйте, меня интересует продукция Marso!" >
+                                <a href="https://wa.me//+77073579707?text=Здравствуйте, меня интересует продукция Marso!" >
                                     <img className="whatsapp-img" src="https://marso.su/bitrix/components/aspro/social.info.mshop/images/svg/whatsapp.svg" />
                                 </a>
                             </div>
@@ -57,6 +57,9 @@ export const Footer = () => {
                             </Link>
                             <Link to={"/delivery"}>
                                 <p className="footer-link">Условия доставки</p>
+                            </Link>
+                            <Link to={"/cert"}>
+                                <p className="footer-link">Сертификаты</p>
                             </Link>
                             <Link to={"/cert"}>
                                 <p className="footer-link">Сертификаты</p>

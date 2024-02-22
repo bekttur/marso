@@ -12,7 +12,7 @@
 
 .perfume-card {
     width: 28%;
-    transition: 0.2s all ease;
+    transition: 0.5s all ease;
     margin-bottom: 15px;
 }
 .perfume-card:hover {
