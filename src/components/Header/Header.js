@@ -156,6 +156,6 @@ export const Header = ({ perfumes, searchResult, setSearchResult }) => {
         </div>
       </motion.header>
       <Outlet />
-    </.div>
+    </div>
   );
 };
