@@ -47,7 +47,7 @@ export const Header = ({ perfumes, searchResult, setSearchResult }) => {
   };
 
   return (
-    <motion.div onClick={handleBackgroundClick}>
+    <div onClick={handleBackgroundClick}>
       <motion.header
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -156,6 +156,6 @@ export const Header = ({ perfumes, searchResult, setSearchResult }) => {
         </div>
       </motion.header>
       <Outlet />
-    </motion.div>
+    </.div>
   );
 };
