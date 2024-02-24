@@ -124,7 +124,8 @@ export const Header = ({ perfumes, searchResult, setSearchResult }) => {
           <div className='nav-button'>
             <a
               target='_blank'
-              href='https://marso.kg/auth/registration/?ref=989243499'
+              // href='https://marso.kg/auth/registration/?ref=989243499'
+              href='https://marso.kg/auth/registration/?ref=991388933'
               className='nav-button-link'
             >
               Стать партнером
