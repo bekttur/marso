@@ -128,7 +128,7 @@
     }
 }
 
-@media (min-width: 1025px) and (max-width: 1739px) {
+@media (min-width: 1025px)  {
     .page-img {
         width: 180px;
     }
