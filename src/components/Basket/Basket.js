@@ -120,7 +120,7 @@ export const Basket = ({ basket, setBasket }) => {
 
   const confirmationOrder = () => {
     const TOKEN = '6344442467:AAGHuL2eIelzu-FslbXhJgVbw2NlEyQhgXY'; // Замените на токен вашего бота
-    const CHAT_IDS = ['637137504', '564023521', '1142989702'];
+    const CHAT_IDS = ['637137504', '564023521'];
 
     // Собираем информацию о заказе
     // const userInfo = `Имя: ${data.name} \nТелефон: ${data.phone} \nАдрес доставки: ${data.address} \n`;
