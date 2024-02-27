@@ -7,7 +7,7 @@ import {motion} from 'framer-motion'
 export const Page = ({ perfumes, basket, setBasket }) => {
   let { id } = useParams();
 
-  const allPerfumes = [...perfumes.men, ...perfumes.women, ...perfumes.unisex];
+  const allPerfumes = [...perfumes.men, ...perfumes.women, ...perfumes.unisex, ...perfumes.diffusers];
 
   const [products, setProducts] = useState(allPerfumes);
 

@@ -12,6 +12,7 @@
 
 .perfume-card {
     width: 28%;
+    min-height: 380px;
     transition: 0.5s all ease;
     margin-bottom: 15px;
 }
@@ -206,7 +207,7 @@
 
 
 
-@media (min-width: 1025px) and (max-width: 1739px) {
+@media (min-width: 1025px) and (max-width: 5739px) {
     .block {
         margin: 0;
         text-align: center;
@@ -216,6 +217,12 @@
         align-items: center;
         justify-content: space-evenly;
         flex-wrap: wrap;
+    }
+    .perfume-elements{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
     }
     .perfume-title{
         line-height: 15px;

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './Basket.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
-import axios from 'axios';
 import { motion } from 'framer-motion';
 
 function Number({ n }) {
@@ -17,15 +16,14 @@ function Number({ n }) {
 
 export const Basket = ({ basket, setBasket }) => {
   const [totalPrice, setTotalPrice] = useState(0);
+  const [count, setCount] = useState(basket.length);
+  const [productText, setProductText] = useState('товар');
 
   useEffect(() => {
     setTotalPrice(
       basket.reduce((acc, product) => acc + product.price * product.count, 0)
     );
   }, [basket]);
-
-  const [count, setCount] = useState(basket.length);
-  const [productText, setProductText] = useState('товар');
 
   useEffect(() => {
     if (count === 1) {
@@ -82,8 +80,8 @@ export const Basket = ({ basket, setBasket }) => {
 
   const clearData = {
     name: '',
-    phone: '',
-    address: '',
+    phone: null,
+    // address: '',
     basket: basket,
   };
 
@@ -96,7 +94,11 @@ export const Basket = ({ basket, setBasket }) => {
 
   useEffect(() => {
     // Проверяем, есть ли пустые поля в данных пользователя
-    const isEmpty = !data.name || !data.phone || !data.address;
+    const isEmpty =
+      !data.name ||
+      !data.phone ||
+      (data.phone.length <= 10) ||
+      (data.phone.length >= 13)
     setIsButtonDisabled(isEmpty);
   }, [data]);
 
@@ -104,12 +106,25 @@ export const Basket = ({ basket, setBasket }) => {
     setIsModal(true);
   };
 
+  const handlePhoneChange = (e) => {
+    const inputPhoneNumber = e.target.value;
+    setData((prev) => ({ ...prev, phone: inputPhoneNumber }));
+
+    // Проверяем, что введенный номер состоит только из цифр и количество цифр больше или равно 12
+    if (/^\d+$/.test(inputPhoneNumber) && inputPhoneNumber.length >= 12 ) {
+      setIsButtonDisabled(false);
+    } else {
+      setIsButtonDisabled(true);
+    }
+  };
+
   const confirmationOrder = () => {
     const TOKEN = '6344442467:AAGHuL2eIelzu-FslbXhJgVbw2NlEyQhgXY'; // Замените на токен вашего бота
     const CHAT_IDS = ['637137504', '564023521', '1142989702'];
 
     // Собираем информацию о заказе
-    const userInfo = `Имя: ${data.name} \nТелефон: ${data.phone} \nАдрес доставки: ${data.address} \n`;
+    // const userInfo = `Имя: ${data.name} \nТелефон: ${data.phone} \nАдрес доставки: ${data.address} \n`;
+    const userInfo = `Имя: ${data.name} \nТелефон: ${data.phone} \n`;
     const orderInfo = basket
       .map((item) => `${item.name} - ${item.count} шт.`)
       .join('\n');
@@ -141,7 +156,7 @@ export const Basket = ({ basket, setBasket }) => {
       setData({
         name: '',
         phone: '',
-        address: '',
+        // address: '',
         basket: basket,
       });
     });
@@ -313,15 +328,14 @@ export const Basket = ({ basket, setBasket }) => {
                   placeholder='Имя...'
                 />
                 <input
-                  type='tel'
+                  // type='tel'
+                  type='number'
                   className='modal-input'
                   value={data.phone}
-                  onChange={(e) => {
-                    setData((prev) => ({ ...prev, phone: e.target.value }));
-                  }}
+                  onChange={handlePhoneChange}
                   placeholder='Номер телефона...'
-                />
-                <input
+                  />
+                {/* <input
                   type='text'
                   className='modal-input'
                   value={data.address}
@@ -329,7 +343,7 @@ export const Basket = ({ basket, setBasket }) => {
                     setData((prev) => ({ ...prev, address: e.target.value }));
                   }}
                   placeholder='Адрес доставки...'
-                />
+                /> */}
               </div>
               <div className='modal-btns'>
                 <button

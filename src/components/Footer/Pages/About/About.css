@@ -7,3 +7,7 @@
     font-size: 13px;
     color: #888888;
 }
+
+li::marker {
+    color: #00A396;
+}

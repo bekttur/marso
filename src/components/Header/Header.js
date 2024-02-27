@@ -154,6 +154,13 @@ export const Header = ({ perfumes, searchResult, setSearchResult }) => {
               </Link>
             </div>
           </div>
+          <div className='perfume-link'>
+            <div className='link'>
+              <Link to={'/diffusers'}>
+                <h5 className='perfume-link-text'>ДИФФУЗОРЫ</h5>
+              </Link>
+            </div>
+          </div>
         </div>
       </motion.header>
       <Outlet />
