@@ -37,9 +37,9 @@ export const Footer = () => {
                             <Link to={"/company"} >
                                 <p className="footer-link weight">Компания</p>
                             </Link>
-                            <Link to={"/company"}>
+                            {/* <Link to={"/company"}>
                                 <p className="footer-link">О компании</p>
-                            </Link>
+                            </Link> */}
                             <a target="_blank" href="https://marso.su/upload/catalog.pdf">
                                 <p className="footer-link">Каталог продукции MARSO (часть 1)</p>
                             </a>
